@@ -8,12 +8,16 @@ const Statistics = (props) => {
     const positive = all ?  (props.good*100)/all : 0;
 
     const stats = all === 0 ? <p>no feedback given</p>: <div>
+        <table>
+            <tbody>
         <Statistic text="good" value={props.good}/>
         <Statistic text="neutral" value={props.neutral}/>
         <Statistic text="bad" value={props.bad}/>
         <Statistic text="all" value={all}/>
         <Statistic text="average" value={+all / 3}/>
         <Statistic text="positive" value={`${positive}%`}/>
+            </tbody>
+        </table>
     </div>
     return (
         stats
@@ -22,9 +26,10 @@ const Statistics = (props) => {
 
 const Statistic = (props) => {
     return (
-        <div>
-            <p>{props.text} {props.value}</p>
-        </div>
+        <tr>
+            <td>{props.text}</td>
+            <td> {props.value}</td>
+        </tr>
     );
 };
 
